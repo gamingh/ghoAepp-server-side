@@ -1,6 +1,8 @@
 #!/bin/bash
 # Depends on https://github.com/ashima/pdf-table-extract and curl
 
+export ROOTPWD=$(pwd)
+
 # Create new temp folder
 mkdir -p /tmp/vertretungsplan; cd /tmp/vertretungsplan
 
@@ -14,7 +16,7 @@ pdf-table-extract -i vertretungsplan.pdf -t table_html -p 2 -o vertretungsplan-t
 export PLANHTML=$(cat vertretungsplan-table.html)
 
 # Write some template and the content of $PLANHTML into a new html file
-cat << EOF > ../vertretungsplan.html
+cat << EOF > $ROOTPWD/vertretungsplan.html
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -71,3 +73,4 @@ $PLANHTML
 EOF
 
 cd ..; rm vertretungsplan -r
+cd $ROOTPWD
