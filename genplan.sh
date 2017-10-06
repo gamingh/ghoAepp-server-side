@@ -11,6 +11,10 @@ curl https://gho.berlin/wp-content/frei_stunden/VPS.pdf --user "<username>:<pass
 # extract html table from pdf
 pdf-table-extract -i $TMPPATH/vertretungsplan.pdf -t table_html -p 2 -o $TMPPATH/vertretungsplan-table.html
 
+# Replace some strings to be easier to understand
+sed -i s/"VLehrer Kürzel"/"Vertretungslehrer (Kürzel)"/g $TMPPATH/vertretungsplan-table.html
+sed -i s/"Pos"/"Stunde"/g $TMPPATH/vertretungsplan-table.html
+
 # Read html table into PLANHTML var
 export PLANHTML=$(cat $TMPPATH/vertretungsplan-table.html)
 
