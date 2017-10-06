@@ -36,11 +36,12 @@ cat << EOF > vertretungsplan.html
 		margin-left: auto;
 		margin-right: auto;
 		background-color: white;
+		overflow: auto;
 	}
 
 	@media screen and (max-width: 1000px) {
 		#main {
-			width: 100%;
+			width: auto;
 		}
 	}
 
