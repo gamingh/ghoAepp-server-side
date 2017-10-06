@@ -1,22 +1,21 @@
 #!/bin/bash
 # Depends on https://github.com/ashima/pdf-table-extract and curl
 
-export ROOTPWD=$(pwd)
-
 # Create new temp folder
-mkdir -p /tmp/vertretungsplan; cd /tmp/vertretungsplan
+mkdir -p /tmp/vertretungsplan;
+export TMPPATH="/tmp/vertretungsplan"
 
 # Download pdf with authentification
-curl https://gho.berlin/wp-content/frei_stunden/VPS.pdf --user "<username>:<password>" --output vertretungsplan.pdf
+curl https://gho.berlin/wp-content/frei_stunden/VPS.pdf --user "<username>:<password>" --output $TMPPATH/vertretungsplan.pdf
 
 # extract html table from pdf
-pdf-table-extract -i vertretungsplan.pdf -t table_html -p 2 -o vertretungsplan-table.html
+pdf-table-extract -i $TMPPATH/vertretungsplan.pdf -t table_html -p 2 -o $TMPPATH/vertretungsplan-table.html
 
 # Read html table into PLANHTML var
-export PLANHTML=$(cat vertretungsplan-table.html)
+export PLANHTML=$(cat $TMPPATH/vertretungsplan-table.html)
 
 # Write some template and the content of $PLANHTML into a new html file
-cat << EOF > $ROOTPWD/vertretungsplan.html
+cat << EOF > vertretungsplan.html
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -72,5 +71,4 @@ $PLANHTML
 </html>
 EOF
 
-cd ..; rm vertretungsplan -r
-cd $ROOTPWD
+rm $TMPPATH/ -r
