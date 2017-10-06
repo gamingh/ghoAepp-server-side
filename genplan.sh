@@ -37,6 +37,11 @@ cat << EOF > vertretungsplan.html
 		margin-right: auto;
 		background-color: white;
 		overflow: auto;
+		padding: 5
+	}
+
+	#footer {
+		color: dimgray
 	}
 
 	@media screen and (max-width: 1000px) {
@@ -58,14 +63,24 @@ cat << EOF > vertretungsplan.html
 		padding: 6px 8px;
 		font-size: 20px
 	}
+
+	h2, h1 {
+		text-align: center
+	}
 	</style>
 
 	<body>
 		<div id="main" class="w3-card-2 w3-round w3-padding-4 w3-animate-opacity">
 
+		<h2>Vertretungsplan</h2>
+
 <!-- begin of automatically generated table -->
 $PLANHTML
 <!-- end of automatically generated table -->
+
+		<p id="footer">Daten von <a href="https://gho.berlin/wp-content/frei_stunden/VPS.pdf">gho.berlin</a>.
+		Entwickelt von <a href="https://github.com/JBBgameich">JBBgameich</a>.
+		Quellcode frei <a href="https://gist.github.com/JBBgameich/199e6cc2ab49dbdc0b3ee592cf79d66e">auf Github</a> verfügbar.</p>
 
 		</div>
 	</body>
