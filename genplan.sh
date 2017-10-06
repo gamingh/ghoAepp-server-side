@@ -28,53 +28,53 @@ cat << EOF > vertretungsplan.html
 		<meta charset="utf-8">
 		<title>Vertretungsplan</title>
 		<meta name="viewport" content="width=device-width">
-	</head>
 
-	<style>
-	@import url("http://www.jbbgameich.tk/css/bootstrap.css");
-	@import url("http://www.jbbgameich.tk/css/w3.css");
+		<style>
+		@import url("http://www.jbbgameich.tk/css/bootstrap.css");
+		@import url("http://www.jbbgameich.tk/css/w3.css");
 
-	body {
-		background-image: url("http://www.jbbgameich.tk/img/bg.png");
-	}
-
-	#main {
-		width: 1000px;
-		margin-left: auto;
-		margin-right: auto;
-		background-color: white;
-		overflow: auto;
-		padding: 5
-	}
-
-	#footer {
-		color: dimgray
-	}
-
-	@media screen and (max-width: 1000px) {
-		#main {
-			width: auto;
+		body {
+			background-image: url("http://www.jbbgameich.tk/img/bg.png");
 		}
-	}
 
-	table {
-		border: 1px solid #ddd!important
-		w3-table
-		border-collapse: collapse;
-		border-spacing: 0; width: 100%; */
-		display: table
-	}
+		#main {
+			width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: white;
+			overflow: auto;
+			padding: 5
+		}
 
-	td, th, tr {
-		border: 1px solid lightgrey;
-		padding: 6px 8px;
-		font-size: 20px
-	}
+		#footer {
+			color: dimgray
+		}
 
-	h2, h1 {
-		text-align: center
-	}
-	</style>
+		@media screen and (max-width: 1000px) {
+			#main {
+				width: auto;
+			}
+		}
+
+		table {
+			border: 1px solid #ddd!important
+			w3-table
+			border-collapse: collapse;
+			border-spacing: 0; width: 100%; */
+			display: table
+		}
+
+		td, th, tr {
+			border: 1px solid lightgrey;
+			padding: 6px 8px;
+			font-size: 20px
+		}
+
+		h2, h1 {
+			text-align: center
+		}
+		</style>
+	</head>
 
 	<body>
 		<div id="main" class="w3-card-2 w3-round w3-padding-4 w3-animate-opacity">
