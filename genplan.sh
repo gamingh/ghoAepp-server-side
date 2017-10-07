@@ -22,6 +22,7 @@ sed -i s/"Fällt"/"fällt"/g $TMPPATH/vertretungsplan-table.html
 
 # Read html table into PLANHTML var
 export PLANHTML=$(cat $TMPPATH/vertretungsplan-table.html)
+export GENTIME=$(TZ='Europe/Berlin' date)
 
 # Write some template and the content of $PLANHTML into a new html file
 cat << EOF > vertretungsplan.html
@@ -82,6 +83,8 @@ cat << EOF > vertretungsplan.html
 		<div id="main" class="w3-card-2 w3-round w3-padding-4 w3-animate-opacity">
 
 		<h2>Vertretungsplan</h2>
+
+		<p align="right">Zuletzt aktualisiert um $GENTIME</p>
 
 <!-- begin of automatically generated table -->
 $PLANHTML
