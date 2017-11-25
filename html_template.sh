@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function gen_from_html_template {
 	cat << EOF > $TARGET
 	<html>
