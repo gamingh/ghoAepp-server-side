@@ -1,7 +1,7 @@
 #!/bin/bash
 # Depends on https://github.com/ashima/pdf-table-extract and curl
 
-. ./html.sh
+. ./html_template.sh
 
 # Create new temp folder
 mkdir -p /tmp/vertretungsplan;
@@ -13,12 +13,7 @@ curl https://gho.berlin/download/115/allgemeine-informationen/5731/arbeitsgemein
 
 # extract table from pdf
 pdf-table-extract -i $TMPPATH/vertretungsplan.pdf -t table_html -p 2 -o $TMPPATH/vertretungsplan-table.html
-pdf-table-extract -i $TMPPATH/vertretungsplan.pdf -t cells_xml -p 2 -o vertretungsplan-cells.xml
-pdf-table-extract -i $TMPPATH/vertretungsplan.pdf -t cells_json -p 2 -o vertretungsplan-cells.json
-
 pdf-table-extract -i $TMPPATH/ags.pdf -t table_html -p 1 -o $TMPPATH/ags-table.html
-pdf-table-extract -i $TMPPATH/ags.pdf -t cells_xml -p 1 -o ags-cells.xml
-pdf-table-extract -i $TMPPATH/ags.pdf -t cells_json -p 1 -o ags-cells.json
 
 for i in $TMPPATH/*vertretungsplan*; do
 	# Replace some strings to be easier to understand
