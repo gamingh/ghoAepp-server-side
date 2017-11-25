@@ -1,0 +1,15 @@
+language: python
+sudo: required
+
+install:
+    - sudo apt install curl python3 python3-setuptools python3-numpy
+    - git clone https://github.com/JBBgameich/pdf-table-extract
+    - cd pdf-table-extract
+    - sudo python3 setup.py install
+
+before_script:
+    - sed -i s/"<username>"/"$USERNAME"/g extract-json.py extract-html.sh
+    - sed -i s/"<password>"/"$PASSWORD"/g extract-json.py extract-html.sh
+
+script:
+    - python3 update.py
